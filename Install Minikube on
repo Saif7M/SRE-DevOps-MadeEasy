@@ -95,16 +95,16 @@ minikube addons enable ingress
 
 Step 8: Stop/Start/Delete Cluster
 
-Stop:
-
-minikube stop
+Stop: minikube stop
 
 
-Start again:
-
-minikube start
+Start again: minikube start
 
 
-Delete:
 
-minikube delete
+Delete: minikube delete
+--------==========-------------==============-------------------=========--------
+https://minikube.sigs.k8s.io/docs/start/?arch=%2Fmacos%2Farm64%2Fstable%2Fhomebrew#Service
+https://minikube.sigs.k8s.io/docs/drivers/docker/#Rootless%20Docker
+
+install dockerdesktop - start it and then try installing minikube.
