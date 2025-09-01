@@ -1,0 +1,110 @@
+Step 1: Prerequisites
+
+Before installing, make sure you have:
+
+macOS: Version 10.14+ (Mojave or later).
+
+Virtualization: Check if your Mac supports virtualization (required for VM drivers).
+
+Run: sysctl -a | grep -E --color 'machdep.cpu.features|VMX'
+
+
+If you see VMX → virtualization is supported.
+
+Package Manager (Homebrew) – recommended.
+Install Homebrew if you don’t have it:
+
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+-------------------------------------------------------------
+Step 2: Install a Driver
+
+Minikube needs a VM driver or container runtime. Common choices on macOS:
+
+Docker (Recommended if you have Docker Desktop installed)
+
+HyperKit (fast, lightweight, but needs installation)
+
+VirtualBox (heavier, not recommended unless others don’t work)
+
+👉 If you already use Docker Desktop, you can skip driver installation.
+
+To install HyperKit:
+
+brew install hyperkit
+brew install minikube
+--------------------------------------------------------------
+Step 3: Install kubectl
+
+You need kubectl (Kubernetes CLI) to interact with the cluster.
+
+brew install kubectl
+
+
+Verify:
+
+kubectl version --client
+Step 4: Install Minikube
+
+Install using Homebrew:
+
+brew install minikube
+
+
+Verify installation:
+
+minikube version
+------------------------------------------------------------
+Step 5: Start Minikube
+
+Now start your cluster.
+
+If using Docker as driver:
+
+minikube start --driver=docker
+
+
+If using HyperKit:
+
+minikube start --driver=hyperkit
+
+
+Default command (auto-detects driver):
+
+minikube start
+Step 6: Verify Cluster
+
+Check if the cluster is running:
+
+kubectl get nodes
+
+
+You should see one node in Ready state.
+
+Step 7: Enable Useful Addons (Optional)
+
+Enable Kubernetes Dashboard:
+
+minikube addons enable dashboard
+minikube dashboard
+
+
+Enable Ingress:
+
+minikube addons enable ingress
+
+Step 8: Stop/Start/Delete Cluster
+
+Stop:
+
+minikube stop
+
+
+Start again:
+
+minikube start
+
+
+Delete:
+
+minikube delete
