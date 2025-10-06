@@ -49,8 +49,59 @@ If the pod has restarted multiple times:
 kubectl get pod <pod-name> -n <namespace> -o wide
 kubectl logs <pod-name> --previous
 
-
+    
 Check resource utilization
 
 kubectl top pod -n <namespace>
 kubectl top node
+
+===========================================
+2. Pod-Level Troubleshooting
+🔹 Check Pod Status
+kubectl get pods -A -o wide
+
+
+Common statuses:
+
+CrashLoopBackOff → app keeps crashing
+
+ImagePullBackOff → image name/tag or credentials issue
+
+Pending → not scheduled (node resource issue)
+
+Evicted → node pressure (memory/disk)
+
+🔹 Debugging a CrashLoopBackOff
+kubectl logs <pod-name> --previous
+
+
+→ Check what caused the last crash.
+
+🔹 Debugging ImagePullBackOff
+kubectl describe pod <pod-name>
+
+
+→ Look for:
+
+Wrong image name/tag
+
+Missing imagePullSecrets
+
+Private registry auth issues
+
+🔹 Debugging Pending Pods
+kubectl describe pod <pod-name>
+kubectl get nodes
+
+
+Look for:
+
+“Insufficient CPU/memory”
+
+Taints or node selectors mismatched
+
+🔹 Run a temporary debug container
+kubectl debug -it <pod-name> --image=busybox --target=<container-name> -- /bin/sh
+
+
+=====================================
