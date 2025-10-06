@@ -1,0 +1,17 @@
+Table of Contents
+
+🔍 General Troubleshooting Strategy
+
+🧱 Pod-Level Troubleshooting
+
+⚙️ Deployment / ReplicaSet / StatefulSet
+
+🧑‍💻 Node-Level Debugging
+
+🌐 Networking Troubleshooting
+
+📦 Storage & Volume Issues
+
+🧩 Cluster & Control Plane Issues
+
+🧰 Bonus: Useful Tools & Commands
