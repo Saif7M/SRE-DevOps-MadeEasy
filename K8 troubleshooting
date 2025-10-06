@@ -16,8 +16,8 @@ Table of Contents
 
 🧰 Bonus: Useful Tools & Commands
 
-
-General Troubleshooting Strategy
+= = = = = = = = = = = = = = = = = = = = = =
+1.General Troubleshooting Strategy
 
 Golden Rule:
 Always troubleshoot from top → down, or symptom → root cause.
@@ -147,5 +147,38 @@ sudo crictl ps
 🔹 Drain or cordon a problematic node
 kubectl cordon <node-name>      # prevent new pods
 kubectl drain <node-name> --ignore-daemonsets
-==========================
+=====================================
 
+5. Networking Troubleshooting
+🔹 Check service connectivity
+kubectl get svc -n <namespace>
+kubectl describe svc <service-name> -n <namespace>
+
+🔹 Test from inside a pod
+
+Run a debug pod:
+
+kubectl run net-debug --image=busybox -it --rm -- sh
+
+
+Inside the shell:
+
+ping <service-name>
+nslookup <service-name>
+wget http://<service-name>:<port>
+
+🔹 Check DNS
+kubectl -n kube-system get pods -l k8s-app=kube-dns
+kubectl logs -n kube-system <dns-pod-name>
+
+🔹 Check NetworkPolicy
+kubectl get networkpolicy -A
+
+
+→ Ensure rules allow ingress/egress as expected.
+
+🔹 Check CNI plugin (Calico, Flannel, etc.)
+kubectl get pods -n kube-system | grep cni
+kubectl logs <cni-pod> -n kube-system
+
+= = = = = = = = = = = = = = = ========== = = = = = = = = = = = = = =
