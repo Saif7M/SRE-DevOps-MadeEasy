@@ -15,3 +15,42 @@ Table of Contents
 🧩 Cluster & Control Plane Issues
 
 🧰 Bonus: Useful Tools & Commands
+
+
+General Troubleshooting Strategy
+
+Golden Rule:
+Always troubleshoot from top → down, or symptom → root cause.
+
+Check what’s wrong
+
+kubectl get all -A
+
+
+→ Gives a cluster-wide summary.
+
+Find the namespace, pod, or deployment with issues
+
+Describe the object
+
+kubectl describe pod <pod-name> -n <namespace>
+
+
+→ Look for Events, Warnings, ImagePullBackOff, CrashLoopBackOff, etc.
+
+Check logs
+
+kubectl logs <pod-name> -n <namespace> --tail=100
+kubectl logs <pod-name> -n <namespace> -c <container-name>
+
+
+If the pod has restarted multiple times:
+
+kubectl get pod <pod-name> -n <namespace> -o wide
+kubectl logs <pod-name> --previous
+
+
+Check resource utilization
+
+kubectl top pod -n <namespace>
+kubectl top node
