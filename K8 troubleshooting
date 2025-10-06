@@ -125,4 +125,27 @@ kubectl describe pod <pod-name> | grep -i mount
 kubectl get configmap <name> -n <namespace> -o yaml
 kubectl get secret <name> -n <namespace> -o yaml
 =============================================
+4. Node-Level Debugging
+🔹 Check node health
+kubectl get nodes
+kubectl describe node <node-name>
+
+
+Common issues:
+
+NotReady → kubelet or network down
+
+DiskPressure / MemoryPressure → resource constraints
+
+🔹 SSH into node
+ssh <node-ip>
+sudo journalctl -u kubelet
+
+🔹 Check running containers
+sudo crictl ps
+
+🔹 Drain or cordon a problematic node
+kubectl cordon <node-name>      # prevent new pods
+kubectl drain <node-name> --ignore-daemonsets
+==========================
 
