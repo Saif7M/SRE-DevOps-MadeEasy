@@ -182,3 +182,73 @@ kubectl get pods -n kube-system | grep cni
 kubectl logs <cni-pod> -n kube-system
 
 = = = = = = = = = = = = = = = ========== = = = = = = = = = = = = = =
+
+6. Storage & Volume Issues
+🔹 Check PersistentVolumeClaims (PVCs)
+kubectl get pvc -n <namespace>
+kubectl describe pvc <pvc-name> -n <namespace>
+
+🔹 Common errors
+
+Pending → StorageClass not found or no PV available
+
+MountVolume.SetUp failed → Node can’t attach volume
+
+permission denied → wrong FS permissions
+
+🔹 Check the node for mounted volumes
+sudo lsblk
+df -h
+
+============ ============ ============== ===============
+
+7. Cluster & Control Plane Troubleshooting
+🔹 Check component status
+kubectl get componentstatuses
+
+
+(Deprecated in new versions; use metrics or kubelet healthz)
+
+🔹 Inspect system pods
+kubectl get pods -n kube-system
+kubectl describe pod <name> -n kube-system
+kubectl logs <pod> -n kube-system
+
+🔹 Common checks:
+
+kube-apiserver logs → auth/etcd issues
+
+kube-controller-manager → pod scheduling failures
+
+kube-scheduler → resource constraints
+
+🔹 Check etcd health
+ETCDCTL_API=3 etcdctl endpoint health
+
+========= ============== ============= ============= =======
+
+8. Bonus: Handy Tools & Shortcuts
+Tool	Use
+kubectl debug	Temporary container for debugging
+kubectl cp	Copy files in/out of pods
+stern / kubetail	Tail logs of multiple pods
+k9s	TUI dashboard for interactive debugging
+kubectx / kubens	Fast context and namespace switching
+Lens IDE	GUI for cluster inspection
+kubectl describe	Your best friend for event-based debugging
+
+Practical Troubleshooting Flow (Summary)
+1️⃣ kubectl get pods -A
+2️⃣ kubectl describe pod <pod>
+3️⃣ kubectl logs <pod>
+4️⃣ kubectl get events --sort-by=.metadata.creationTimestamp
+5️⃣ kubectl get nodes
+6️⃣ kubectl describe node <node>
+7️⃣ kubectl exec -it <pod> -- sh
+8️⃣ kubectl top pods / nodes
+9️⃣ Check services & endpoints
+🔟 Inspect network policies & DNS
+
+========= = =================== = =============== = ============
+
+
