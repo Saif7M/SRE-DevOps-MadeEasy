@@ -105,3 +105,24 @@ kubectl debug -it <pod-name> --image=busybox --target=<container-name> -- /bin/s
 
 
 =====================================
+
+3. Deployment / ReplicaSet / StatefulSet Issues
+🔹 Check rollout status
+kubectl rollout status deployment/<deployment-name> -n <namespace>
+kubectl rollout history deployment/<deployment-name>
+
+🔹 Undo a failed deployment
+kubectl rollout undo deployment/<deployment-name>
+
+🔹 Check ReplicaSet
+kubectl get rs -n <namespace>
+
+
+→ Confirms whether replicas are being created.
+
+🔹 Debug missing or misconfigured ConfigMaps / Secrets
+kubectl describe pod <pod-name> | grep -i mount
+kubectl get configmap <name> -n <namespace> -o yaml
+kubectl get secret <name> -n <namespace> -o yaml
+=============================================
+
