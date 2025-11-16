@@ -1,0 +1,17 @@
+The Linux OS is a layered architecture comprising the hardware, kernel, system libraries, system utilities, and the shell. 
+The kernel is the core component that communicates directly with the hardware to manage system resources like memory and the CPU.
+The shell is the user interface, which takes commands and uses system libraries and utilities to translate them into actions for the kernel to execute. 
+
+
+=== Architecture layers ====
+Hardware Layer: The physical components of the computer, including the CPU, memory (RAM), and storage devices.
+
+Kernel: The core of the OS, which manages hardware resources and acts as the bridge between the hardware and software. It handles processes, memory, and file management.
+
+System Libraries: These are collections of functions that applications use to access kernel functions, often translating them into system calls that the kernel can understand.
+
+System Utilities: Programs that perform specialized tasks and provide services to users, such as managing files and system resources.
+
+Shell: The user interface, which can be a command-line interface (CLI) or a graphical user interface (GUI). The shell accepts commands,
+passes them to the kernel via system calls, and displays the results. 
+
