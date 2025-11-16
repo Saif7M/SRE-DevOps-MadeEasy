@@ -1,0 +1,18 @@
+========= * Steps to connect to GCP instance from Mac * =========
+
+After creating VM instance from the GCP console, please follow below steps.
+
+1.Install Gcloud CLI - https://docs.cloud.google.com/sdk/docs/install-sdk using this link you can follow steps to install Gcloud into your mac
+
+if any error like - "zsh gcloud not found" then add the gcloud instaled directly to zsh with below two commands example.
+
+  source /Users/khajasaifanmulla/downloads/google-cloud-sdk/path.zsh.inc   
+  source /Users/khajasaifanmulla/downloads/google-cloud-sdk/completion.zsh.inc
+
+Now you can able to run gcloud commands.
+
+2. to connect to VM machine use below command.
+
+    gcloud compute ssh VM_NAME --project=PROJECT_ID --zone=ZONE
+
+  ==> make sure to create project and note down project id and connect. even if it ask for "Generating public/private rsa key pair", please create it and run the command again.
