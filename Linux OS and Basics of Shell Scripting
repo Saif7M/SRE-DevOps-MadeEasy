@@ -15,3 +15,89 @@ System Utilities: Programs that perform specialized tasks and provide services t
 Shell: The user interface, which can be a command-line interface (CLI) or a graphical user interface (GUI). The shell accepts commands,
 passes them to the kernel via system calls, and displays the results. 
 
+
+Linux commands for users and permissions:
+
+---> how to check user exist
+    id user     -to check user exit or not and check details.
+    ex: id ubuntu
+        id khaja
+        id root
+
+
+----> whoami - to check current user
+
+----> check all users in linux system
+      cat /ect/passwd
+
+----> switch user accounts
+        sudo su - username
+
+    ex: sudo su - root
+        sudo su - sys #this account currently not avaialable
+        sudo su - bin  #this account currenlty not avaialable
+
+        logout -> to come out of current user, here root user
+Note: above users sys and bin are system users and they don't have bin/bash so login
+
+--->  Create users / add user account(required sudo as it is system level change)
+
+      sudo adduser username
+    ex: sudo adduser john
+
+    confirm: id john
+
+Note: id number less than 1000 are system users and above are normal user human entity.
+
+    To find the exact account information - grep used to find "saif" string
+---> cat /etc/passwd | grep saif
+
+---> Grant regular user from outside the server
+
+    ->AWS -> sudo vi /etc/ssh/sshd_config.d/60-cloudimag-settings.conf
+    ->set passwordauthontication to yes
+    ->restart: sudo systemctl restart ssh
+
+    ->Azure -> sudo vi /etc/ssh/sshd_config.d/50-cloudimg-init.conf
+    
+
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
