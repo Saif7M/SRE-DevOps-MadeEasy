@@ -60,8 +60,113 @@ Note: id number less than 1000 are system users and above are normal user human 
 
     ->Azure -> sudo vi /etc/ssh/sshd_config.d/50-cloudimg-init.conf
     
+User Management:
+    ->root user has all elevated permissions with id 0
+        id root
+
+ex: ~$ id root
+uid=0(root) gid=0(root) groups=0(root)
+
+    -> system users has id less than 1000
+    -> other user human access has id more than 1000
+
+======= Swith user =========
+-> you cannot connect to instance execpt ubuntu user other users like sys, bin and root will be denied.
+
+Format to swith user: Sudo su - username
+        example: sudo su - root
+
+example: @instance-20251119-052229:~$ sudo su - bin         # this will not work as these account don't have /bash and ending with nologin
+This account is currently not available.
 
 
+========= Add user Account =======
+Format: sudo adduser username
+ex: sudo adduser saif                
+
+    -> to confirm id creation: id saif
+    this will output details of user saif -> here id will be more than 1000 as it is human user.
+
+    -> Swith to saif user account
+        sudo su - saif        ->here sudo refer to superuserdo and su refer to swith user
+
+
+============= grant instance login to other users(saif/ravi) from outside ========
+
+->AWS -> sudo vi /etc/ssh/sshd_config.d/60-cloudimag-settings.conf
+    ->set passwordauthontication to yes
+    ->restart: sudo systemctl restart ssh
+
+    -> then login to system by user ravi using ssh
+    ex: ssh ravi@publicIP
+    
+
+    ->Azure -> sudo vi /etc/ssh/sshd_config.d/50-cloudimg-init.conf
+
+========= server previalges with user account =========
+
+    -> using ubuntu
+    ls opt
+    touch opt/file.txt
+    sudo touch opt/file.txt
+    ls opt
+
+    -> using normal user like ravi/john
+    ls opt
+    touch opt/file.txt
+    sudo touch opt/file.txt
+    ls opt
+
+conclusion: ravi/john don't have sudoers access and not able to edit file, so any system related things.. ubuntu or root user has access.
+
+Note: to know sudoers use command -> sudo grep sudo etc/group
+    -> bydefault only ubuntu added to sudoers list
+
+==> to add normal user to sudoers use command
+    Format: sudo usermod -aG group username
+        ex: sudo usermod -aG sudo kcm
+
+    -> check user added to sudoers
+        sudo grep sudo /etc/group
+
+==> to remove users from sudoers
+    Format: sudo gpasswd -d username group 
+        ex: sudo gpasswd -d kcm sudo
+
+    -> verify user removed from sudo group
+        sudo grep sudo /etc/group
+
+==> delete the user
+    Format: sudo deluser username        -> this will only delete user
+        ex: sudo deluser ravi
+
+        id ravi -> this will show user not exist
+
+    Format: sudo deluser -remove-home username    -> this will delete user and its home directory profile data
+        ex: sudo deluser -remove-home john
+
+            ls /home -> this will give users present in home
+
+==============================================================
+
+
+============ user groups - gorups management =============
+
+    group is logical collection of users - for better access permissions
+
+    
+
+
+    
+
+
+
+
+
+
+
+    
+    
       
       
 
