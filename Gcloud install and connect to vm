@@ -18,3 +18,11 @@ Now you can able to run gcloud commands.
   ex: gcloud compute ssh instance-20251112-060038 --natural-oxygen-473509-p2 --zone=us-central1-a
 
   ==> make sure to create project and note down project id and connect. even if it ask for "Generating public/private rsa key pair", please create it and run the command again.
+
+For error:
+ERROR: (gcloud.compute.ssh) [/usr/bin/ssh] exited with return code [255].
+khajasaifanmulla@KhajasaifansAir ~ % sudo gcloud compute config-ssh
+
+Try this and rerun ssh command to connect to vm
+Also search for gcloud ssh command form console of gcp - (Connect to a VM with SSH)
+
