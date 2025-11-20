@@ -1,0 +1,115 @@
+========= * ======= Working with linux permissions ======= * =============
+
+  rwx       rw-       r--
+   |        |         |
+  user      group    others
+
+
+  => check user permissions
+      ls -l        -> to check permissions on currecnt directory files
+      ls -l /home  -> to check home directory file permissions
+      ls -l /      -> to check root level directory/file permissions
+      ls -l file.xt  -> to check file permissions
+
+  => 3 commands used for permissions
+      chmod  chown  chgrp
+
+    -> Set file to readonly permissions
+    Format: chmod u-w filename      -> removing write permissions for user
+        ex: chmod u-w file.txt
+
+        chmod ugo-rwx file.txt      -> this will remove all read, write and execute permissions for file.txt file for all users, group and others.
+        output: :  ~$ ls -l file.txt
+                  ---------- 1 ubuntu ubuntu 0 Nov 19 06:54 file.txt
+
+        ex: chmod ugo+r file.txt                -> this will add read permissions for ugo
+        output: ubuntu@ip-172-31-31-217:~$ ls -l file.txt
+                -r--r--r-- 1 ubuntu ubuntu 0 Nov 19 06:54 file.txt
+
+
+  => two types of chmod permissions
+    1.Symbolic mode
+      rwx  -> read write execute
+      ugo  ->  user group others
+      +-   -> add(+) and remove(-)
+
+
+    2.Numberic Mode    - user numbers for permissions
+      
+      Better explaination: https://www.booleanworld.com/introduction-linux-file-permissions/
+
+      Number	rwx triplet     	Description
+      0	      ---	              No permissions
+      1	      --x	              Execute
+      2	      -w-	              Write
+      3	      -wx	              Write and execute
+      4	      r--	              Read
+      5	      r-x	              Read and execute
+      6	      rw-	              Read and write
+      7	      rwx	              Read, write and execute
+
+
+    => set file permissiions to read and write using numberic mode
+      ex: chmod 666 file.txt
+  
+          chmod 777 file.txt
+      output: ls -l file.txt
+              -rwxrwxrwx 1 ubuntu ubuntu 0 Nov 19 06:54 file.txt      -> now set permissions with read, write and execute
+
+    => Changing owernership - chown
+
+        Format: sudo chown owner filename/directoryname
+            ex: sudo chown ubuntu /opt/file.txt            -> now ubuntu has permissios of owner rather than root
+
+        
+
+    => Changing group - chgrp    
+        ex: sudo chgrp ubuntu /opt/file.txt      
+
+    => steps to change ownership of file
+
+      sudo vi /opt/db.properties   -> add content to file
+      ls -l /opt/db.properties     -> check permissions
+
+      sudo chgrp developers /opt/db.properties  -> group changed to developers and no more ubuntu group can access file
+      ls -l /opt/db.properties     -> check permissions
+
+      sudo chmod 440 /opt/db.properties         -> user and group can only read files
+      ls -l /opt/db.properties     -> check permissions
+
+Note: try downloading executable file and execute it
+
+    -> exectue permission
+      chmod u+x kubectl  -> make kubectl as executable file
+      ./kubectl          -> run to execute
+
+
+  => Creted shell script file and run it
+      buntu@ip-172-31-31-217:~$ touch kube.sh    -> created file with .sh extention
+      ubuntu@ip-172-31-31-217:~$ vim kube.sh     -> edit file and echo command with some text
+      ubuntu@ip-172-31-31-217:~$ ./kube.sh       -> try running/executing file - it gave error
+      -bash: ./kube.sh: Permission denied
+      ubuntu@ip-172-31-31-217:~$ chmod u+x kube.sh       -> make file executable
+      ubuntu@ip-172-31-31-217:~$ ./kube.sh               -> try run and got output
+      myfirst file
+
+
+============== * ================= * =====================
+      
+
+      
+      
+
+
+
+        
+
+
+
+
+
+
+
+
+      
+      
