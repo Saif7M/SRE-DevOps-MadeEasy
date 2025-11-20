@@ -112,10 +112,10 @@ ex: sudo adduser saif
     ls opt
 
     -> using normal user like ravi/john
-    ls opt
+    ls /opt
     touch opt/file.txt
     sudo touch opt/file.txt
-    ls opt
+    ls /opt
 
 conclusion: ravi/john don't have sudoers access and not able to edit file, so any system related things.. ubuntu or root user has access.
 
@@ -152,7 +152,65 @@ Note: to know sudoers use command -> sudo grep sudo etc/group
 
 ============ user groups - gorups management =============
 
-    group is logical collection of users - for better access permissions
+    group is logical collection of users - for better access permissions - Can apply permissions to multiple users
+
+    => Checking Group
+        cat /etc/group    -> this will list all gorups and individual users are also listed as groups.
+
+Note: Every user we create has a degault group with same name as username and it is called as primary group.
+
+    => Create a group called as developers
+        Fromat: sudo addgroup groupname
+            ex: sudo addgroup developer
+
+        Verify: Sudo grep developers /etc/group
+
+    => adding user to group
+        Format: sudo usermod -aG groupname username
+            ex: sudo usermod -aG developers kcm
+
+    => user delete from group
+        Format: sudo gpasswd -d username group
+
+    => group delete
+        Format: sudo groupdel groupname
+            ex: sudo groupdel developers
+
+
+======== Permissions ==========
+
+    => permissions are grants that we apply to oweners, users and others.
+        Working with permissions helps to understand permission denied errors.
+
+            ls -l    -> to know the files permissions
+    output: -rw-rw-r-- 1 ubuntu ubuntu    0 Nov 20 08:32 hey.txt
+            drwxrwxr-x 2 ubuntu ubuntu 4096 Nov 19 06:54 home
+
+
+        rwx rw- r--    -> indicates permissions
+        ubuntu ubuntu  -> indicates for user and group
+        -              -> first letter indicates file
+        d              -> fisrt letter of output if d then indicates directory
+
+
+        rwx -> this is for owner/user permissions
+        rw- -> this is for group permissions
+        r-- -> this is for others
+
+        r = read
+        w = write
+        x = execute
+
+================ * ================= * =================
+
+
+
+
+
+
+    
+
+    
 
     
 
