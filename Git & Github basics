@@ -1,0 +1,160 @@
+=========== * =========== * =================
+
+SDLC 
+
+        -> The Software Development Life Cycle (SDLC) is a process followed by 
+            software development teams to design, develop and test high-quality software. 
+
+        -> The SDLC consists of multiple stages such as Requirement Gathering, Analysis, Design, 
+            Code, Test, Deploy and Maintain.
+
+    -> Version Control Systems (VCS)
+
+        -> Version control / Revision control / Source control is a process that helps to 
+            keep track of changes made to a file or a set of files 
+            (computer programs, web site files, documents etc) over time.
+
+        -> Advantage Of VCS is Revert Changes To Previous Working Versions, 
+            if there are issues in new version
+
+Client Side Software     - Developer 
+
+            -> Git a tool to implement VSC 
+            -> Git helps in tracking code / changes in your code 
+            -> Git tracks code in your laptop 
+
+        -> GitHub - Server Side Software  - Organizations
+
+            -> GitHub provides a platform to store code 
+            -> GitHub Stores All Versions Of Code in centralized location (github.com)
+
+        -> Developer -> Git -> GitHub 
+
+        -> Repository 
+
+            -> A repository contains all of your project's files and each file's revision history. 
+                Developers can discuss and manage your project's work within the repository.
+
+        -> JIRA 
+
+            -> Jira is a proprietary product developed by Atlassian that allows 
+                bug tracking, issue tracking and agile project management. 
+        
+
+  repository owner -> organization or person who created repo and has owner access.
+
+  note: by defualt we get branch called "main"
+
+  => Branch Protection: Developer will clone main branch from github repo and create dev branch(experimental copy of main branch) locally and work on it and create PR.
+
+=> Terminology:
+    1. Branches
+      Branching is a core concept in Git where a separate line of development is created, allowing developers to work on different features, fixes, or experiments simultaneously without affecting the main codebase.
+      Common branch types include:
+      Main (Master) Branch: The primary and stable branch, often used for production-ready code.
+      Feature Branches: Created for developing new features. These branches are typically merged back into the main branch after the work is completed.
+      Hotfix Branches: Used to fix bugs in the main branch, especially in production.
+      Release Branches: Created to prepare for a new release, allowing final touches, testing, and bug fixes before merging into the main branch.
+      
+    2. Commits
+      A commit in Git is a snapshot of changes made to the code. Each commit records who made the change, what was changed, and when.
+      Commits should be small, focused, and meaningful, allowing easy tracking and rollback if necessary.
+      
+    3. Merging
+      Merging is the process of combining changes from one branch into another.
+      Merges can be:
+      Fast-forward: When there is no divergence, and the target branch simply moves forward to the tip of the merged branch.
+      Three-way merge: When there are divergent changes, Git creates a new commit that combines the changes.
+      Merge conflicts occur when changes in different branches are incompatible, requiring manual resolution.
+      
+    4. Pull Requests (PR)
+      A Pull Request is a feature offered by platforms like GitHub, GitLab, and Bitbucket, where developers can request to merge their branch into another (usually the main branch).
+      PRs allow for code review, discussion, and testing before merging, ensuring code quality and minimising bugs.
+      
+    5. Rebasing
+      Rebasing is another way to integrate changes from one branch into another.
+      Instead of creating a merge commit, rebasing re-applies commits from one branch onto another as if they were created sequentially, resulting in a linear history.
+      
+    6. Staging Area
+      The staging area is where changes are reviewed and prepared before committing. This allows developers to control exactly what gets included in a commit.
+      
+=> Common Git Workflows
+      1. Centralised Workflow
+      Single Branch (Master/Main): Everyone works directly on the main branch.
+      Usage: Simple projects or small teams.
+      Pros: Easy to understand.
+      Cons: High risk of conflicts, less control over changes.
+      
+      2. Feature Branch Workflow
+      Branches: Each feature or bug fix is developed in its own branch.
+      Usage: Medium to large teams.
+      Pros: Isolated development, easier collaboration, and safer code integration.
+      Cons: Requires good branch management.
+      
+      3. Gitflow Workflow
+      Branches: Includes main, develop, feature, release, and hotfix branches.
+      Usage: Complex projects with multiple release cycles.
+      Pros: Structured release management, clear branch roles.
+      Cons: Complex branch management, not ideal for continuous deployment.
+      
+      4. Forking Workflow
+      Fork: Each developer has a personal copy (fork) of the repository.
+      Usage: Open-source projects or teams working on the same base code but needing different variations.
+      Pros: Complete isolation, contributors can experiment freely.
+      Cons: More complex collaboration, harder to manage multiple forks.
+      
+=> Terminology:
+    1. Owner
+      The Owner is the person who owns the repository, often responsible for setting up the project, managing permissions, and overseeing the overall codebase.
+      The owner creates the repository and can add other developers as collaborators.
+      
+    2. Repository
+      A Repository (repo) is a storage location for your project. It contains all the files and their version history.
+      The repository is hosted on a platform like GitHub, GitLab, or Bitbucket, enabling multiple developers to work on the project.
+      
+    3. Main Branch
+      The Main Branch (often named main or master) is the primary branch in a repository.
+      It contains the stable and production-ready code that should always be in a deployable state.
+      Changes to the main branch are carefully managed and reviewed to ensure stability.
+      
+    4. Protect Main Branch
+      The owner can Protect the Main Branch to prevent direct pushes or unreviewed changes. This means:
+      Only certain users can make changes.
+      Changes can only be made via Pull Requests (PRs) that must be reviewed and approved.
+      Protection rules can include:
+      Requiring status checks to pass before merging.
+      Restricting who can push to the branch.
+      
+    5. Developer
+      A Developer is someone working on the project. They are given access to the repository by the owner.
+      Developers do not work directly on the main branch; instead, they create feature branches to work on new features, bug fixes, or other tasks.
+      
+    6. Dev Branch
+      The Dev Branch (or any feature branch) is created by the developer from the main branch.
+      This branch is where the developer writes code, commits changes, and tests new features.
+      The dev branch is often named after the feature or bug being addressed, e.g., feature/login-page or bugfix/header-issue.
+      
+    7. Pull Request by Developer from Dev to Main Branch
+      Once the developer is satisfied with their changes, they open a Pull Request (PR).
+      The PR is a request to merge the changes from the dev branch into the main branch.
+      The PR contains a description of the changes, and any relevant information the owner/reviewers need to know.
+      
+    8. Owner Review and Merge to Main Branch
+      The Owner (or other reviewers) reviews the Pull Request.
+      They may check:
+      Code quality and style.
+      If the changes introduce any bugs or issues.
+      Whether the changes align with the project goals.
+      The reviewer can request changes, approve, or reject the PR.
+      Once approved, the owner or authorized reviewer merges the dev branch into the main branch.
+      After merging, the main branch is updated with the new changes, and the dev branch can be deleted if it’s no longer needed.
+      
+      
+  => Summary of the Workflow:
+      Owner creates and manages the Repository.
+      The Main Branch is protected to ensure stability.
+      A Developer creates a Dev Branch to work on new features or fixes.
+      The developer opens a Pull Request to merge changes from the dev branch to the main branch.
+      The Owner reviews the changes, and upon approval, merges them into the Main Branch.
+
+=============== * ==================== * ================
