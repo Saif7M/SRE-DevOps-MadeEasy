@@ -102,7 +102,9 @@ Client Side Software     - Developer
       Usage: Open-source projects or teams working on the same base code but needing different variations.
       Pros: Complete isolation, contributors can experiment freely.
       Cons: More complex collaboration, harder to manage multiple forks.
-      
+
+        Note: large organization uses feature branch workflow.
+
 => Terminology:
     1. Owner
       The Owner is the person who owns the repository, often responsible for setting up the project, managing permissions, and overseeing the overall codebase.
