@@ -1,3 +1,30 @@
     -> Application Developed 
 
     
+    -> How Customer Accesses Applications ?
+
+        -> Customers Accesses Applications Via Servers 
+
+    -> To Host / Deploy Applications Follow Below Approach 
+
+        -> Create Server 
+
+        -> Install Appropriate Softwares On Server 
+
+        -> Host / Deploy Application On Server 
+
+        NOTE: Above Activities are operations oriented 
+
+        NOTE: Terminate Linux Server, as we no longer need it 
+
+    -> Web Server 
+
+
+        -> A web server is computer software [ Nginx HTTP Server ] 
+        and underlying hardware [ AWS Instance / AZURE VM ] 
+        that accepts requests via HTTP (port 80) 
+        to distribute web content.
+
+        -> NOTE: All Servers that host websites must have web server program.
+
+
