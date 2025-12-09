@@ -15,3 +15,31 @@
                 -> After Building, Artifact is Useable Software which is below 
 
         -> Binary Code - https://notepad-plus-plus.org/downloads/
+
+-> Any Build implementation consists of following steps 
+
+        -> Source Code Files 
+
+            -> Source code is the list of human-readable instructions that a programmer writes
+
+            -> Handled by Developer
+
+        -> Metadata File 
+
+            -> File that contains information about the project and 
+                configuration details used to build the project. 
+
+            -> Handled by Developer
+
+        -> Binary Code (After Build is done)
+
+            -> Build artifacts are files produced by a build
+
+            -> Handled by Developer in his Laptop
+            
+            -> Handled by DevOps Engineer on Server for future Automation in CI-CD
+
+        
+    -> NOTE: Below Link Help's you understand, how developers initially learn how to perform builds 
+
+        -> https://radixweb.com/blog/steps-to-build-react-project-with-create-react-app
