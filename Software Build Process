@@ -43,3 +43,36 @@
     -> NOTE: Below Link Help's you understand, how developers initially learn how to perform builds 
 
         -> https://radixweb.com/blog/steps-to-build-react-project-with-create-react-app
+
+
+============================
+-> Three Tier App Architecture
+
+        -> Most Popular Applications
+            
+            -> https://en.wikipedia.org/wiki/Programming_languages_used_in_most_popular_websites
+
+        -> LMS Application Stack
+            
+            -> Database: POSTGRES
+            -> Backend: NODEJS 
+            -> Frontend: JavaScript (REACTJS)
+
+    -> LMS Project - BUILD 
+        
+        -> As LMS App is multi tier, We need Following Rules(ports) in Security Group
+            -> SSH - 22 - Login
+            -> DATABASE TIER [ POSTGRES ] - 5432 - Storing Data
+            -> APPLICATION TIER [ NODEJS ] - 8080 - Business Logics
+            -> FRONTEND TIER [ REACTJS ] - 80 - Hosted On Web Server
+
+    -> NOTE: LMS Application Build Requires, below hardware configuration
+
+        -> AWS 
+            
+            -> “t2.medium instance” i.e 4 GB RAM - 2 CPU’s on AWS, with 20 GB as Storage.  
+                
+        -> AZURE 
+            
+            -> B2S, i.e 4 GB RAM - 2 CPU’s on AZURE, with 30 GB as Storage
+
