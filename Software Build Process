@@ -1,0 +1,17 @@
+-> Build Management 
+
+        -> The term "build" may refer to the "process" by which 
+            "source code" is converted into "binary code" (software artifact)
+
+        -> In DevOps, the software build process is a foundational component of the 
+            Continuous Integration and Continuous Delivery (CI/CD) pipeline, 
+            serving as a critical automated step that transforms 
+            source code into a deployable product.
+
+                -> Artifact is Useable Software after build is done 
+
+        -> Source Code - https://github.com/notepad-plus-plus/notepad-plus-plus/tags
+
+                -> After Building, Artifact is Useable Software which is below 
+
+        -> Binary Code - https://notepad-plus-plus.org/downloads/
