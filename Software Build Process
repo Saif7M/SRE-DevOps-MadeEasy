@@ -133,3 +133,49 @@
 
         -> NOTE: Verify Node Environment setup with below commands
 
+-> node -v 
+            -> npm -v
+
+        -> Steps to Build Backend API 
+
+            -> ls
+            -> git clone -b dev https://github.com/joshisuyog4/lms-v1.git 
+            -> ls 
+            -> cd ~/lms-v1/api
+            -> vi .env 
+
+                MODE=dev
+                PORT=8080
+                DATABASE_URL=postgresql://postgres:db_password@localhost:5432/postgres
+
+                -> NOTE: In .env file we would specify the database connection details.
+
+                    -> grep .env -r
+            
+            -> Verify in postgres session 
+
+                -> \dt 
+
+            -> Database Schema 
+
+                -> cat prisma/migrations/20221110085013_init/migration.sql
+            
+            -> Commands to setup Database tables 
+
+                -> npm install 
+                -> npx prisma generate && npx prisma db push
+            
+            -> Verify in postgres session 
+
+                -> \dt 
+
+            -> NOTE: Command to build application using "ubuntu" user
+
+                -> ls build
+                -> npm run build 
+                -> ls build
+
+            -> NOTE: Command to start application using "ubuntu" user    
+                
+                -> node build/index.js 
+
