@@ -76,3 +76,33 @@
             
             -> B2S, i.e 4 GB RAM - 2 CPU’s on AZURE, with 30 GB as Storage
 
+
+=> Steps To Build LMS Application (From Development Team We Get KT)
+
+        -> sudo ss -ntpl
+
+        -> Setup Database 
+
+            -> Goto https://www.postgresql.org/download/linux/ubuntu/
+
+                sudo apt install curl ca-certificates
+                sudo install -d /usr/share/postgresql-common/pgdg
+                sudo curl -o /usr/share/postgresql-common/pgdg/apt.postgresql.org.asc --fail https://www.postgresql.org/media/keys/ACCC4CF8.asc
+                . /etc/os-release
+                sudo sh -c "echo 'deb [signed-by=/usr/share/postgresql-common/pgdg/apt.postgresql.org.asc] https://apt.postgresql.org/pub/repos/apt $VERSION_CODENAME-pgdg main' > /etc/apt/sources.list.d/pgdg.list"
+                sudo apt update
+                sudo apt install postgresql-18
+        
+        -> sudo ss -ntpl
+
+        -> Every Database has connection properties, which includes
+            -> Address Of Database
+            -> Database Port
+            -> Database Username
+            -> Database Password
+
+        -> Commands to set the password for postgres database
+            -> sudo su - postgres
+            -> psql
+            -> \password
+
