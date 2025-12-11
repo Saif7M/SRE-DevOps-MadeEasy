@@ -28,3 +28,43 @@
         -> NOTE: All Servers that host websites must have web server program.
 
 
+-> Commands To Work With Web Application / Web Site Deployments 
+
+        -> Command To Check Which Port is in use by which application 
+            -> sudo ss -ntpl 
+        
+        -> Install Nginx Web Server
+            -> sudo apt update -y
+            -> sudo apt install nginx -y 
+            -> sudo ss -ntpl (check for port 80)
+        
+        -> Test Web Server 
+
+            -> Browse Pubic IP 
+
+        -> For Web Servers, we have DocumentRoot i.e location 
+            where web pages load from /var/www/html 
+
+            -> ls /var/www/html 
+            
+            -> Repo URL - https://github.com/ravi2krishna/login-2519.git
+
+            -> Clone Repo 
+
+                -> sudo git clone <url> <destination_path>
+
+                -> sudo git clone https://github.com/ravi2krishna/login-2519.git /var/www/html 
+
+                -> sudo rm /var/www/html/index.nginx-debian.html
+
+                -> ls /var/www/html 
+
+                -> sudo git clone https://github.com/ravi2krishna/login-2519.git /var/www/html 
+
+                -> ls /var/www/html 
+
+                -> Browse Pubic IP 
+
+                -> Terminate Web Server We Created
+
+
