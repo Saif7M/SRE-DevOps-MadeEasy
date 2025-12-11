@@ -41,6 +41,8 @@
         -> Test Web Server 
 
             -> Browse Pubic IP 
+                note: just paste the public IP in browser - like - http://104.154.74.197/
+                        this will disply "welcome to nginx" if nginx installed properly.
 
         -> For Web Servers, we have DocumentRoot i.e location 
             where web pages load from /var/www/html 
