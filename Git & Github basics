@@ -186,5 +186,8 @@ Git CLI Workflow
 
         -> NOTE: Terminate Web Server We Created
 
+git config commands:
+git config --global user.name "saif7m"
+git config --global user.email "saifan@gmail.com"
 
 =============== * ==================== * ================
