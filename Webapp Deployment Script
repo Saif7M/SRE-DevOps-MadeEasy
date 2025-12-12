@@ -11,3 +11,35 @@
         
         -> Automating repetitive tasks is the most common use case. 
 
+
+===================================
+-> Git CLI Workflow 
+
+        git clone <url>
+        cd repository
+        git status
+        git branch
+        git config --global user.name ravi2krishna                   
+        git config --global user.email ravi2krishna@gmail.com
+        git branch	 scripts
+        git branch
+        git checkout scripts
+        git branch
+        git status
+        vi script.sh   
+            { put some content }               
+        git status
+        git add script.sh   
+            { staged the changes }
+        git commit -m "Create Deployment Script"    
+            { Committed from staging area to local repo}
+        git status
+        git push --all
+
+        -> NOTE: Generate PAT (Personal Access Token) for CLI Push Operations 
+
+        -> NOTE: Terminate Web Server We Created
+========================================
+
+
+
