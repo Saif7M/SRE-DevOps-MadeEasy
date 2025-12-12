@@ -1,0 +1,21 @@
+-> Code Analysis With SonarQube
+
+    -> Verify SonarQube Installation
+
+        -> sudo ss -ntpl
+        -> Browse SonarQube, in Browser with port 9000 -> ip_address:9000 
+
+    -> For SonarQube Setup, we need Docker 
+
+        docker
+        ls
+        wget -O get-docker.sh https://get.docker.com && sh get-docker.sh
+        ls
+        docker
+
+    -> Install SonarQube
+        sudo ss -ntpl
+        sudo docker container run -dt --name sonarqube --restart=always -p 9000:9000 sonarqube
+        sudo ss -ntpl
+    
+    -> Browse SonarQube, in Browser with port 9000 -> ip_address:9000 
