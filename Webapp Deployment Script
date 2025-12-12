@@ -1,0 +1,13 @@
+-> Shell Scripting
+
+        -> Shell scripting is a way to automate tasks on a server 
+            by writing a series of commands in a file.
+            This file, called a script, is then executed.
+
+        -> A shell script is a text file containing a sequence of commands 
+            that the shell(bash) can interpret and execute. 
+            These commands can include anything from simple file operations 
+            to complex system administration tasks.
+        
+        -> Automating repetitive tasks is the most common use case. 
+
