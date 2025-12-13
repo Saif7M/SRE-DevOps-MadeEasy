@@ -1,0 +1,40 @@
+-> LMS Application Deployment - 2 Hours 
+
+    -> Terminate Server 
+    
+    -> Again Redeploy LMS Application - 2 Hours 
+
+    -> DevOps Engineer will implement "DevOps Practices" using "TOOLS"
+            so that organizations can BUILD, TEST & DEPLOY (Delivery Line) Softwares
+            "FASTER" & "RELIABLE"
+
+    -> FASTER ?? 
+
+    -> Project - 1 (LMS App Deployment) Helped us understand, 
+        how real world apps will be deployed
+
+    -> Project - 2 (How To Accelerate Things i.e FASTER )
+
+        -> LMS Application Deployment - 2 Hours (Normal Approach)
+
+        -> LMS Application Deployment - 2 mins (Containerized Approach)
+
+    -> Containerization
+
+        -> Containerization is one of the practices in devops, which provides 
+
+            -> "Lightweight" and "Efficient" way of running applications 
+
+            -> Promotes "Faster Deployments" and "Portability" for applications
+
+    -> Containerization is implemented by software/tool "DOCKER" 
+
+    -> Docker, the containerization platform which helps 
+        simplify application deployment which in turn leads to faster deployments
+
+    -> Container 
+
+        -> A Container holds some supplies / objects, that can be transported 
+
+        -> In terms of software development, a container is an object for 
+            holding or transporting/ship applications.
