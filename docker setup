@@ -1,0 +1,39 @@
+-> Setup Docker 
+
+    -> NOTE: Docker Requires, below hardware configuration
+
+        -> AWS 
+            
+            -> “t2.medium instance” i.e 4 GB RAM - 2 CPU’s on AWS, with 20 GB as Storage.  
+                
+        -> AZURE 
+            
+            -> B2S, i.e 4 GB RAM - 2 CPU’s on AZURE, with 30 GB as Storage   
+
+        -> Add Following Rules in Security Groups / Network Security Groups
+            -> 22, 80, 32768-61000, 8080-9090
+
+                -> 32768-61000 - Docker Pre defined port range   
+                -> 8080-9090 - User defined port range
+
+        -> Setup Docker 
+
+            -> docker 
+            -> wget -O get-docker.sh https://get.docker.com && sh get-docker.sh
+            -> docker
+
+            -> docker info 
+            -> sudo docker info
+
+            -> docker image ls 
+
+            -> To Overcome Permissions issues, add ubuntu user to docker group 
+
+                -> sudo usermod -aG docker ubuntu
+                -> logout & login back 
+                -> docker image ls 
+
+            -> docker container run hello-world
+
+            -> Devops Engineer -> Request -> Docker Client(Run Container hello-world) 
+                -> Docker Daemon -> Docker Registry -> hello-world Image (Fetched On Server) -> hello-world Container 
