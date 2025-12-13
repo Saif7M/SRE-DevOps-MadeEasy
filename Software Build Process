@@ -246,4 +246,8 @@ or
             -> sudo systemctl start nginx
             -> sudo ss -ntpl
 
+======== * ================================ * =================
+
+lms applicaiton deployment - 2hours
+need to do it with devops with help of docker with faster pace.
 
