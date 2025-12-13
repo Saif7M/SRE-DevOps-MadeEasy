@@ -28,6 +28,7 @@
 
             -> File that contains information about the project and 
                 configuration details used to build the project. 
+        
 
             -> Handled by Developer
 
@@ -183,7 +184,66 @@ or
                 -> npm run build 
                 -> ls build
 
-            -> NOTE: Command to start application using "ubuntu" user    
+            -> NOTE: Command to start application using "ubuntu" user   
                 
-                -> node build/index.js 
+-> Locally verify 
+        
+        -> curl http://localhost:8080/api
+-> NOTE: If you get below message, backend deployment is success   
+            
+            {"message":"success","mode":"dev"}
+ -> Verify with Browse - http://public-ip:8080/api
+
+
+========================================================================
+=> connecting backend, frontend and database.
+        
+        -> Setup Frontend.
+      > Setup Frontend / Client Layer For LMS 
+
+        -> In Our Repo, we have webapp directory which is frontend part of the application
+
+        -> cd ~/lms-v1/webapp/
+
+        -> vi .env 
+
+            VITE_API_URL=http://public-ip:8080/api
+
+        -> To build frontend
+
+            -> npm install
+            -> ls dist
+            -> npm run build 
+            -> ls dist
+
+        -> To Host Frontend, we need web server 
+
+            -> sudo ss -ntpl
+            -> sudo apt -y install nginx
+            -> sudo ss -ntpl
+            -> ls /var/www/html/
+            -> sudo rm -rf /var/www/html/*
+            -> ls /var/www/html/
+            -> sudo cp -r ~/lms-v1/webapp/dist/*  /var/www/html/
+            -> ls /var/www/html/
+        
+        -> For Troubleshooting 
+
+            -> sudo ss -ntpl
+            -> sudo systemctl stop postgresql
+            -> sudo ss -ntpl
+            -> sudo systemctl start postgresql
+            -> sudo ss -ntpl
+
+            -> control + c 
+            -> sudo ss -ntpl
+            -> node index.js
+            -> sudo ss -ntpl
+
+            -> sudo ss -ntpl
+            -> sudo systemctl stop nginx
+            -> sudo ss -ntpl
+            -> sudo systemctl start nginx
+            -> sudo ss -ntpl
+
 
