@@ -58,6 +58,8 @@
 
     -> verify the output of sonarqube analysis on webpage as well, it will show pass and other issues.
 
+        ->Check the issues section and then fix them on main branch and rerun analysis.
+
     -> NOTE: Once Sonar Analysis Lab is done, Delete SonarQube Server 
 
 
