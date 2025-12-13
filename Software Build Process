@@ -164,8 +164,16 @@
 
                 -> npm install 
                 -> npx prisma generate && npx prisma db push
-            
-            -> Verify in postgres session 
+or
+                ->npx prisma generate
+                ->npx prisma db push
+                        output should be like:
+========
+🚀  Your database is now in sync with your Prisma schema. Done in 81ms
+
+✔ Generated Prisma Client (4.6.0 | library) to ./node_modules/@prisma/client in 63ms
+========           
+            -> Verify in postgres session - here table will be visilbe
 
                 -> \dt 
 
