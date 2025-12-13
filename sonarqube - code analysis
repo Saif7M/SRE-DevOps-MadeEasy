@@ -46,7 +46,17 @@
         ls
         cd ~/lms-v1/webapp
         ls
-        sudo docker run  --rm -e SONAR_HOST_URL="http://3.149.4.107:9000" -v ".:/usr/src" sonarsource/sonar-scanner-cli -Dsonar.token=sqp_d5adfd3df2690e803eb348a91f2ab4028e14cda7 -Dsonar.projectKey=lms
+        #sudo docker run  --rm -e SONAR_HOST_URL="http://3.149.4.107:9000" -v ".:/usr/src" sonarsource/sonar-scanner-cli -Dsonar.token=sqp_d5adfd3df2690e803eb348a91f2ab4028e14cda7 -Dsonar.projectKey=lms
+
+
+        sudo docker run  --rm -e SONAR_HOST_URL="http://34.71.103.176:9000" -v ".:/usr/src" sonarsource/sonar-scanner-cli -Dsonar.token=sqp_bd729ca3e3c690af788472a7c2ca0e6d98f5e1cd -Dsonar.projectKey=lms
+    -> ClI output:
+        07:38:40.151 INFO  Analysis total time: 18.166 s
+        07:38:40.160 INFO  SonarScanner Engine completed successfully
+        07:38:40.571 INFO  EXECUTION SUCCESS
+        07:38:40.572 INFO  Total time: 25.146s
+
+    -> verify the output of sonarqube analysis on webpage as well, it will show pass and other issues.
 
     -> NOTE: Once Sonar Analysis Lab is done, Delete SonarQube Server 
 
