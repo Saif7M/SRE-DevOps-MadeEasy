@@ -1,3 +1,72 @@
+-> Containerization
+
+        -> Containerization is one of the practices in devops, which provides 
+
+            -> "Lightweight" and "Efficient" way of running applications 
+
+            -> Promotes "Faster Deployments" and "Portability" for applications
+
+    -> Containerization is implemented by software/tool "DOCKER" 
+
+    -> Docker, the containerization platform which helps 
+        simplify application deployment which in turn leads to faster deployments
+
+    -> Container 
+
+        -> A Container holds some supplies / objects, that can be transported 
+
+        -> In terms of software development, a container is an object for 
+            holding or transporting/ship applications.
+
+    
+    -> Monolithic Architecture
+
+        -> Monolithic architecture is a software design pattern where 
+            the entire application is built as a single, indivisible unit.
+
+    -> Microservices Architecture    
+
+        -> Microservices Architecture is a software development approach that involves 
+            building small, independent services that work together to create a larger application.
+
+    
+    -> Containerization involves packaging an application and its dependencies together 
+        into a "lightweight" & "portable" container. 
+
+    -> We as DevOps Engineer, should be able to deploy micro sized applications 
+        into micro sized Environments i.e Containers 
+
+            -> Earlier we deployed Applications on Virtual Machines (Heavy Weight Environments)
+
+    -> Docker Architecture
+
+        -> Docker Daemon / Docker Service 
+        -> Docker Client [ Docker CLI ]
+        -> Docker Registry [ https://hub.docker.com ]
+        -> Docker Images
+        -> Docker Containers
+
+    -> Flow
+
+        -> Devops Engineer -> Request -> Docker Client(Run Container Nginx) 
+            -> Docker Daemon -> Docker Registry -> Nginx Image (Fetched On Server) -> Nginx Container 
+
+    -> The Daemon/Service is responsible for managing Docker objects such as 
+        images, containers, and networks. All the heavy lifting is done by daemon.
+
+    -> The client sends commands to the daemon and receives output. 
+
+    -> The registry stores Docker images and allows them to be shared among users and systems.
+
+    -> A Docker image is a lightweight, standalone, and executable package 
+        that includes everything needed to run the desired software application.
+
+    -> A container in Docker allows you to run an application with all the dependencies it needs
+
+    -> NOTE: Terminate LMS Server, once work is done 
+
+
+
 -> Setup Docker 
 
     -> NOTE: Docker Requires, below hardware configuration
