@@ -1,0 +1,81 @@
+-> Container Modes 
+
+        -> docker container run --name c1 ubuntu:22.04
+
+        -> Interactive / Foreground -it
+
+            -> docker container run -it --name c2 ubuntu:22.04
+
+        -> Detached / Background -dt (recommended)
+
+            -> docker container run -dt --name c3 ubuntu:22.04
+
+            -> Container always runs in background 
+
+            -> docker container exec c3 cat /etc/os-release 
+            -> docker container exec c3 ps -ef
+            -> docker container exec -it c3 bash 
+
+        -> docker container run 
+        -> docker container stop c3
+        -> docker container start c3
+        -> docker container rm c3
+        -> docker container rm -f c3 
+
+    -> Setup Web Server Using Docker 
+
+        -> docker container run -dt --name w1 nginx 
+        -> docker container inspect w1
+        -> curl 172.17.0.2
+
+    
+    -> To Access Containers Outside i.e internet we need to understand docker network
+
+    -> Docker supports various network drivers, each designed for specific use case
+        
+        -> Host
+        -> None
+        -> Bridge
+        
+    -> Host: This driver removes network isolation between the container and the Docker host, 
+        allowing them to share the host’s networking namespace.
+
+        -> docker network ls 
+        -> docker network inspect bridge
+        -> docker container inspect w1
+
+        -> docker network inspect host
+        -> sudo ss -ntpl
+        -> docker container run -dt --name w2 --network=host nginx 
+        -> docker container ls -a
+        -> docker network inspect host
+        -> sudo ss -ntpl
+
+        -> docker container exec w2 apt update -y
+
+    -> None: This driver removes network access 
+
+        -> docker network inspect none
+        -> docker container run -dt --name w3 --network=none nginx 
+        -> docker container exec w3 apt update -y
+
+    -> Why Bridge Network 
+        
+        -> docker container run -dt --name w4 --network=host nginx 
+        -> docker container ls -a
+        -> docker container logs w4
+
+    -> With Bridge Network
+
+        -> docker container run -dt --name w5 nginx  
+        -> docker container run -dt --name w6 nginx  
+        -> docker container run -dt --name w7 nginx  
+        -> docker container ls -a
+
+        -> Using bridge network we can run multiple containers at same time, 
+            but cannot be accessed outside via internet 
+
+    -> Bridge: The default network driver for containers. 
+        When a new container is run, it can be attached to this Bridge network.
+
+    -> To Allow External Access To Containers using bridge, we can use Port Forwarding
