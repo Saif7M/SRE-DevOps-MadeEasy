@@ -1,3 +1,8 @@
+make sure to create VM server on cloud with below port added in security group (AWS) and for GCP make sure to create firewall rules and attach tag to the VM-server.
+
+-> -P - docker ephemeral ports ( predefined range 32768 to 61000 )
+    -> -p - docker user defined ports ( custom range 8080 to 9090 )
+
 -> Container Modes 
 
         -> docker container run --name c1 ubuntu:22.04
