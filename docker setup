@@ -96,7 +96,7 @@
 
             -> docker image ls 
 
-            -> To Overcome Permissions issues, add ubuntu user to docker group 
+            -> To Overcome Permissions issues, add ubuntu(or run command whoami) user to docker group 
 
                 -> sudo usermod -aG docker ubuntu
                 -> logout & login back 
