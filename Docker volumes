@@ -17,3 +17,70 @@
             -> -v /path_host:/path_container
 
         -> NOTE: With Volumes data is persisted on Host System
+
+
+-> Containers Without Volumes 
+
+        -> docker container run -dt --name c1 ubuntu:22.04
+        -> docker container exec c1 ls /
+        -> docker container exec c1 mkdir /data 
+        -> docker container exec c1 touch /data/imp.zip 
+        -> docker container exec c1 ls /data
+        -> docker container rm -f c1 
+
+    -> Containers With Volumes 
+
+        -> NAMED VOLUME
+
+        -> docker volume ls 
+        -> docker container run -dt --name c1 -v imp_vol:/data ubuntu:22.04
+        -> docker volume ls 
+        -> docker volume inspect imp_vol
+        -> docker container exec c1 ls /
+        -> sudo ls /var/lib/docker/volumes/imp_vol/_data
+        -> docker container exec c1 touch /data/imp.zip 
+        -> docker container exec c1 ls /data
+        -> sudo ls /var/lib/docker/volumes/imp_vol/_data
+        -> docker container rm -f c1 
+        -> sudo ls /var/lib/docker/volumes/imp_vol/_data
+        -> docker volume ls 
+
+
+        -> docker container run -dt --name web-app -v login_vol:/usr/share/nginx/html -p 8080:80 nginx  
+        -> docker container exec -it web-app bash 
+        -> apt update -y && apt install git -y
+        -> rm -r /usr/share/nginx/html/*
+        -> git clone https://github.com/ravi2krishna/login-2519.git /usr/share/nginx/html
+        -> exit 
+        -> docker volume ls
+        -> docker volume inspect login_vol
+        -> sudo ls /var/lib/docker/volumes/login_vol/_data
+        -> docker container rm -f web-app
+        -> docker container run -dt --name web-app -v login_vol:/usr/share/nginx/html -p 8080:80 nginx  
+
+        -> Problem with Named Volume 
+
+            -> update code in repo 
+            -> docker container exec -it web-app bash 
+            -> cd /usr/share/nginx/html
+            -> git pull 
+            -> exit 
+            -> docker volume inspect login_vol
+            -> sudo ls /var/lib/docker/volumes/login_vol/_data
+            -> cd /var/lib/docker/volumes/login_vol/_data
+            -> sudo cd /var/lib/docker/volumes/login_vol/_data
+
+        -> HOST VOLUME / BIND MOUNT 
+
+        -> git clone https://github.com/ravi2krishna/login-2519.git 
+        -> ls login-2519
+        -> docker container run -dt --name web-app-new -v ~/login-2519:/usr/share/nginx/html -p 8081:80 nginx  
+        -> docker volume ls
+        -> cd login-2519
+        -> git pull 
+
+        -> NOTE: Clean up all resources 
+
+        -> docker container run -dt --name web-app-new -v ~/login-2519:/usr/share/nginx/html -p 8081:80 nginx  
+        
+        -> NOTE: With above observation, we can say now docker has dependency i.e NOT PORTABLE 
