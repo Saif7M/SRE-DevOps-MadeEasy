@@ -50,7 +50,7 @@
         -> docker container exec -it web-app bash 
         -> apt update -y && apt install git -y
         -> rm -r /usr/share/nginx/html/*
-        -> git clone https://github.com/ravi2krishna/login-2519.git /usr/share/nginx/html
+        -> git clone https://github.com/saif7m/login-2519.git /usr/share/nginx/html
         -> exit 
         -> docker volume ls
         -> docker volume inspect login_vol
@@ -72,7 +72,7 @@
 
         -> HOST VOLUME / BIND MOUNT 
 
-        -> git clone https://github.com/ravi2krishna/login-2519.git 
+        -> git clone https://github.com/saif7m/login-2519.git 
         -> ls login-2519
         -> docker container run -dt --name web-app-new -v ~/login-2519:/usr/share/nginx/html -p 8081:80 nginx  
         -> docker volume ls
@@ -84,3 +84,83 @@
         -> docker container run -dt --name web-app-new -v ~/login-2519:/usr/share/nginx/html -p 8081:80 nginx  
         
         -> NOTE: With above observation, we can say now docker has dependency i.e NOT PORTABLE 
+
+
+-> Dockerize / Build Docker Custom Images
+
+        -> docker container run -dt --name web-app-new -v ~/login-2519:/usr/share/nginx/html -p 8081:80 nginx  
+
+        -> Alternatively, a simple "Dockerfile" can be used to generate a new image 
+        that includes the necessary content (which is a much cleaner solution than the bind mount above)
+
+        -> Dockerize an application is the process of converting an application to run within a Docker container 
+        without dependency. 
+
+        -> Docker can build images automatically by reading the instructions from a "Dockerfile"
+
+        -> A Dockerfile is a text document that contains all the commands a user could call on the command line 
+        to assemble an image. Dockerfile is source code for Docker Image 
+
+        -> Dockerize an application Flow
+
+            -> create a Dockerfile with the required instructions in your project i.e repository
+
+            -> use the "docker build" command to create a Docker image 
+
+            -> Then you can run the container using the image built for confirmation 
+
+        -> Dockerize login application 
+        
+            -> rm -rf login-2519
+            -> git clone https://github.com/saif7m/login-2519.git 
+            -> cd ~/login-2519
+            -> ls 
+            -> docker build -t user/image .
+            -> docker build -t saif7m/login-2519 .
+            -> touch Dockerfile
+            -> ls 
+            -> docker build -t saif7m/login-2519 .
+            -> cat Dockerfile
+            -> cat Dockerfile
+                please build login app image
+            -> docker build -t saif7m/login-2519 .
+                unknown instruction: please
+        
+    ->  Docker Instructions
+
+        FROM — set base image
+        COPY — copy files to image
+        RUN — execute command in container
+        WORKDIR — set working directory
+        VOLUME — create mount-point for a volume
+        CMD — set executable for container
+        EXPOSE — set port number 
+        ENV — set environment variable
+
+    -> cat Dockerfile
+        
+        # - means comment, ignored by docker
+        # FROM - to set base functionality
+        FROM nginx
+
+        # COPY - to copy data from host to above image
+        COPY . /usr/share/nginx/html
+
+    -> docker build -t saif7m/login-2519 .
+
+    -> docker container run -dt --name web-app -p 8080:80 saif7m/login-2519
+
+    -> docker login
+
+    -> docker push saif7m/login-2519
+
+    -> cd ~
+    -> docker container rm -f web-app 
+    -> docker image ls 
+    -> docker image rm -f saif7m/login-2519
+    -> docker image ls 
+    -> ls 
+    -> rm -rf login-2519
+    -> ls 
+
+    -> docker container run -dt --name web-app -p 8080:80 saif7m/login-2519
